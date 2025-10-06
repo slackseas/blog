@@ -35,9 +35,13 @@ This project is configured to run instantly using **Visual Studio Code Dev Conta
 
 1.  **Prerequisites:** Ensure you have [Docker](https://www.docker.com/) installed and running, and the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in VS Code.
 2.  **Open in Container:** When you open this repository in VS Code, you'll see a prompt asking to **"Reopen in Container"**. Click it.
-3.  **Start Jekyll:** Once the container is built and running, open the integrated terminal and run the following command to serve the blog:
+3. * **Install Dependencies:**
     ```bash
-    bundle exec jekyll serve --host 0.0.0.0
+    bundle install
+    ```
+4.  **Start Jekyll:** Once the container is built and running, open the integrated terminal and run the following command to serve the blog:
+    ```bash
+    bundle exec jekyll serve --livereload --force_polling
     ```
     Your blog will be available at `http://localhost:4000`.
 
