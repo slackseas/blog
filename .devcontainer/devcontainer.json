@@ -1,0 +1,12 @@
+{
+	"name": "Jekyll Blog Container",
+	"image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
+	// Be careful with these mounts. The target presumes the user is "vscode".
+	"mounts": [
+		"source=${localEnv:HOME}/.gitconfig-slackseas,target=/home/vscode/.gitconfig-slackseas,type=bind,consistency=cached,readonly",
+		"source=${localEnv:HOME}/.ssh/config,target=/home/vscode/.ssh/config,type=bind,consistency=cached,readonly",
+		"source=${localEnv:HOME}/.ssh/id_ed25519_slackseas.pub,target=/home/vscode/.ssh/id_ed25519_slackseas.pub,type=bind,consistency=cached,readonly"
+	],
+	// This command changes allows ssh to edit ~/.ssh/known_hosts
+	"postCreateCommand": "sudo chown vscode:vscode /home/vscode/.ssh && sudo chmod 700 /home/vscode/.ssh"
+}
